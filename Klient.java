@@ -1,5 +1,4 @@
 
-
 import java.io.*;
 import java.net.*;
 import java.util.logging.Level;
@@ -86,12 +85,12 @@ class RecieveThread implements Runnable {
 
     public RecieveThread(Socket sock) {
         this.sock = sock;
-    }//end constructor
+    }
 
     @Override
     public void run() {
         try {
-            recieve = new BufferedReader(new InputStreamReader(this.sock.getInputStream()));//get inputstream
+            recieve = new BufferedReader(new InputStreamReader(this.sock.getInputStream()));
             String msgRecieved = null;
             while ((msgRecieved = recieve.readLine()) != null) {
                 System.out.println("From Server: " + msgRecieved);
