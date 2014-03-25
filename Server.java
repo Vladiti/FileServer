@@ -1,5 +1,4 @@
 
-
 import java.io.*;
 import java.net.*;
 import java.text.SimpleDateFormat;
@@ -71,11 +70,9 @@ class RecieveFromClientThread implements Runnable {
             while (true) {
                 while ((input = brBufferedReader.readLine()) != null) {
                        if (input.toLowerCase().equals("exit")) {
-                       // break;
                     }else
                     if (input.toLowerCase().equals("privet")) {
-                        //SendToClientMesg send = new SendToClientMesg(clientSocket);
-                        send.send("lalka huli ti ot menya hochesh");
+                        send.send("Otvet");
                     }else{
                         OutputStream os = clientSocket.getOutputStream();
                         send.sendFIle(os,input, clientSocket);
@@ -109,9 +106,9 @@ class SendToClientMesg {
 
     public void send(String msgToClientString) {
         try {
-            pwPrintWriter = new PrintWriter(new OutputStreamWriter(this.clientSock.getOutputStream()));//get outputstream			
-            pwPrintWriter.println(msgToClientString);//send message to client with PrintWriter
-            pwPrintWriter.flush();//flush the PrintWriter
+            pwPrintWriter = new PrintWriter(new OutputStreamWriter(this.clientSock.getOutputStream()));			
+            pwPrintWriter.println(msgToClientString);
+            pwPrintWriter.flush();
             System.out.println("Please enter something to send back to client..");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -132,9 +129,9 @@ class SendToClientMesg {
                     msgToClientString += " "+fList[i].getName();
                 }
             }
-            pwPrintWriter = new PrintWriter(new OutputStreamWriter(this.clientSock.getOutputStream()));//get outputstream			
-            pwPrintWriter.println(msgToClientString);//send message to client with PrintWriter
-            pwPrintWriter.flush();//flush the PrintWriter
+            pwPrintWriter = new PrintWriter(new OutputStreamWriter(this.clientSock.getOutputStream()));		
+            pwPrintWriter.println(msgToClientString);
+            pwPrintWriter.flush();
             System.out.println("Please enter something to send back to client..");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
